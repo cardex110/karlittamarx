@@ -24,7 +24,7 @@ let submitButtonOriginalText = "save listing";
 let lastDetailTrigger = null;
 let lastInquiriesTrigger = null;
 
-const DIAMOND_SRC = "/assets/images/diamond.gif";
+const DIAMOND_SRC = new URL("../assets/images/diamond.gif", import.meta.url).href;
 
 const listeners = {
   onPanelOpen: null,

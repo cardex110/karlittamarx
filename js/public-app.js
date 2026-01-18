@@ -23,7 +23,7 @@ let lastTrigger = null;
 let lastInquiryTrigger = null;
 let activeInquiry = null;
 
-const DIAMOND_SRC = "/assets/images/diamond.gif";
+const DIAMOND_SRC = new URL("../assets/images/diamond.gif", import.meta.url).href;
 
 const AUTH_CLASSES = {
   sold: "is-sold",
