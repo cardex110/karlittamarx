@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>karlittamarx</title>
+    <link rel="icon" type="image/gif" href="assets/images/diamond.gif" />
+    <!-- Preload signature font -->
+    <link rel="preload" href="assets/fonts/POPSTAR.TTF" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div id="app" class="page-shell">
+      <header class="site-banner" aria-label="Site navigation">
+        <span class="site-banner__title">karlittamarx</span>
+        <img class="site-banner__icon" src="assets/images/diamond.gif" alt="" aria-hidden="true" />
+        <a
+          class="site-banner__link"
+          href="https://linktr.ee/shopstudio222?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnJ1kbzJtijiyIEHJ_BwFi_z8IVeSnyOea9u2dh5mcPKHsszsNfjQGWS8BxhE_aem_9Lsj6EA5R41540MUSQXfvg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          linktree
+        </a>
+      </header>
+
+      <main class="main" id="main" aria-live="polite">
+        <section class="listings" aria-label="Closet listings">
+          <div class="listings__grid" id="listing-grid">
+            <!-- Cards injected by public-app.js -->
+          </div>
+        </section>
+      </main>
+      <aside class="detail-panel" id="detail-panel" aria-hidden="true">
+        <div class="detail-panel__inner" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+          <button class="detail-panel__close" id="close-detail-panel" type="button" aria-label="Close listing details"></button>
+          <article class="detail-panel__content" id="detail-content" aria-live="polite"></article>
+        </div>
+      </aside>
+
+      <aside class="inquiry-panel" id="inquiry-panel" aria-hidden="true">
+        <div class="inquiry-panel__inner" role="dialog" aria-modal="true" aria-labelledby="inquiry-title">
+          <button class="inquiry-panel__close" id="close-inquiry-panel" type="button" aria-label="Close inquiry form"></button>
+          <form class="inquiry-form" id="inquiry-form" autocomplete="off">
+            <h2 class="inquiry-form__title" id="inquiry-title">inquire</h2>
+            <p class="inquiry-form__subtitle" id="inquiry-listing"></p>
+            <p class="inquiry-form__message" id="inquiry-message" hidden></p>
+            <div class="inquiry-form__group">
+              <label for="inquiry-name">name</label>
+              <input id="inquiry-name" name="name" type="text" required maxlength="80" />
+            </div>
+            <div class="inquiry-form__group">
+              <label for="inquiry-email">email</label>
+              <input id="inquiry-email" name="email" type="email" required maxlength="120" />
+            </div>
+            <div class="inquiry-form__group">
+              <label for="inquiry-phone">phone (10 digits)</label>
+              <input
+                id="inquiry-phone"
+                name="phone"
+                type="tel"
+                required
+                maxlength="40"
+                autocomplete="tel"
+                inputmode="numeric"
+                pattern="[0-9]{10}"
+              />
+            </div>
+            <div class="inquiry-form__group">
+              <label for="inquiry-notes">message</label>
+              <textarea id="inquiry-notes" name="message" rows="4" maxlength="800"></textarea>
+            </div>
+            <div class="inquiry-form__actions">
+              <button class="inquiry-form__submit" id="inquiry-submit" type="submit">send inquiry</button>
+            </div>
+          </form>
+        </div>
+      </aside>
+    </div>
+
+    <script type="module" src="js/public-app.js"></script>
+  </body>
+</html>

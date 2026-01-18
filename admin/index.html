@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>karlittamarx admin</title>
+    <link rel="icon" type="image/gif" href="../assets/images/diamond.gif" />
+    <link rel="preload" href="../assets/fonts/POPSTAR.TTF" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="../assets/fonts/stylesheet.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-page">
+      <section class="admin-login" id="admin-login">
+        <form class="admin-login__panel" id="admin-login-form" autocomplete="off">
+          <h1 class="admin-login__title">admin login</h1>
+          <div class="admin-login__field">
+            <label for="admin-username">username</label>
+            <input id="admin-username" name="username" type="text" required autofocus />
+          </div>
+          <div class="admin-login__field">
+            <label for="admin-password">password</label>
+            <input id="admin-password" name="password" type="password" required />
+          </div>
+          <button class="admin-login__submit" type="submit">enter studio</button>
+          <p class="admin-login__error" id="admin-login-error" hidden>try again</p>
+        </form>
+      </section>
+
+      <div class="admin-shell" id="admin-shell" hidden>
+        <div id="app" class="page-shell">
+          <header class="site-banner" aria-label="Site navigation">
+            <span class="site-banner__title">karlittamarx</span>
+            <img class="site-banner__icon" src="../assets/images/diamond.gif" alt="" aria-hidden="true" />
+            <a
+              class="site-banner__link"
+              href="https://linktr.ee/shopstudio222?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnJ1kbzJtijiyIEHJ_BwFi_z8IVeSnyOea9u2dh5mcPKHsszsNfjQGWS8BxhE_aem_9Lsj6EA5R41540MUSQXfvg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linktree
+            </a>
+          </header>
+
+          <main class="main" id="main" aria-live="polite">
+            <section class="listings" aria-label="Closet listings">
+              <div class="listings__grid" id="listing-grid">
+                <!-- Cards injected by app.js -->
+              </div>
+            </section>
+          </main>
+
+          <section class="action-bar" aria-label="Add listing">
+            <button class="action-bar__button" id="open-inquiries-panel" type="button" aria-controls="inquiries-panel">
+              view inquiries
+            </button>
+            <button class="action-bar__button" id="open-add-panel" type="button" aria-controls="add-panel">
+              add listing
+            </button>
+            <button class="action-bar__button" id="admin-logout" type="button">
+              log out
+            </button>
+          </section>
+
+          <aside class="add-panel" id="add-panel" aria-hidden="true">
+            <div class="add-panel__inner">
+              <button class="add-panel__close" id="close-add-panel" type="button" aria-label="Close add listing panel"></button>
+              <form class="add-form" id="add-form" autocomplete="off">
+                <h2 class="add-form__title">new listing</h2>
+                <input id="field-id" name="id" type="hidden" />
+                <input id="field-existing-images" name="existingImages" type="hidden" />
+                <div class="add-form__group">
+                  <label for="field-title">listing name</label>
+                  <input id="field-title" name="title" type="text" required maxlength="80" />
+                </div>
+                <div class="add-form__group">
+                  <label for="field-size">size</label>
+                  <input id="field-size" name="size" type="text" maxlength="24" required />
+                </div>
+                <div class="add-form__group">
+                  <label for="field-price">price</label>
+                  <div class="add-form__row">
+                    <select id="field-currency" name="currency">
+                      <option value="USD">US$</option>
+                      <option value="CAD">CA$</option>
+                    </select>
+                    <input
+                      id="field-price"
+                      name="price"
+                      type="text"
+                      inputmode="decimal"
+                      maxlength="16"
+                      pattern="^[0-9]+([.][0-9]{1,2})?$"
+                      placeholder="xxx.xx"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="add-form__group">
+                  <label for="field-image-file">image file</label>
+                  <input
+                    id="field-image-file"
+                    name="imageFiles"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                  />
+                  <div class="image-previews" id="image-previews" aria-live="polite"></div>
+                </div>
+                <div class="add-form__group">
+                  <label for="field-description">description</label>
+                  <textarea id="field-description" name="description" rows="3" maxlength="260" required></textarea>
+                </div>
+                <div class="add-form__group add-form__group--inline">
+                  <label class="add-form__checkbox">
+                    <input id="field-sold" name="sold" type="checkbox" value="true" />
+                    mark as sold
+                  </label>
+                  <label class="add-form__checkbox">
+                    <input id="field-reserved" name="reserved" type="checkbox" value="true" />
+                    mark as reserved
+                  </label>
+                </div>
+                <button class="add-form__submit" type="submit">save listing</button>
+              </form>
+            </div>
+          </aside>
+
+          <aside class="detail-panel" id="detail-panel" aria-hidden="true">
+            <div class="detail-panel__inner" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+              <button class="detail-panel__close" id="close-detail-panel" type="button" aria-label="Close listing details"></button>
+              <article class="detail-panel__content" id="detail-content" aria-live="polite"></article>
+            </div>
+          </aside>
+
+          <aside class="inquiries-panel" id="inquiries-panel" aria-hidden="true">
+            <div class="inquiries-panel__inner" role="dialog" aria-modal="true" aria-labelledby="inquiries-title">
+              <button class="inquiries-panel__close" id="close-inquiries-panel" type="button" aria-label="Close inquiries"></button>
+              <header class="inquiries-panel__header">
+                <h2 class="inquiries-panel__title" id="inquiries-title">inquiry forms</h2>
+                <p class="inquiries-panel__subtitle" id="inquiries-summary"></p>
+              </header>
+              <div class="inquiries-panel__content" id="inquiries-content" aria-live="polite"></div>
+            </div>
+          </aside>
+
+          <footer class="footer" id="footer"></footer>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/admin-app.js"></script>
+  </body>
+</html>
