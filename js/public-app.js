@@ -23,7 +23,7 @@ let lastTrigger = null;
 let lastInquiryTrigger = null;
 let activeInquiry = null;
 
-const DIAMOND_SRC = new URL("../assets/images/diamond.gif", import.meta.url).href;
+const DIAMOND_SRC = new URL("../assets/images/diamond_original.png", import.meta.url).href;
 
 const AUTH_CLASSES = {
   sold: "is-sold",
@@ -144,11 +144,30 @@ const closeInquiryPanel = () => {
   if (elements.inquiryForm) {
     elements.inquiryForm.reset();
   }
+  if (elements.inquirySubmit) {
+    elements.inquirySubmit.disabled = false;
+  }
+  toggleInquiryFields(false);
   if (lastInquiryTrigger) {
     lastInquiryTrigger.focus({ preventScroll: true });
     lastInquiryTrigger = null;
   }
 };
+
+function toggleInquiryFields(shouldDisable) {
+  if (!elements.inquiryForm) return;
+  const inputs = elements.inquiryForm.querySelectorAll("input, textarea, select");
+  inputs.forEach((node) => {
+    if (node instanceof HTMLInputElement || node instanceof HTMLTextAreaElement || node instanceof HTMLSelectElement) {
+      node.readOnly = shouldDisable;
+      if (node instanceof HTMLInputElement && node.type === "hidden") {
+        node.disabled = false;
+      } else {
+        node.disabled = shouldDisable;
+      }
+    }
+  });
+}
 
 const openInquiryPanel = (article, trigger) => {
   if (!elements.inquiryPanel) return;
@@ -156,6 +175,7 @@ const openInquiryPanel = (article, trigger) => {
   activeInquiry = article;
   lastInquiryTrigger = trigger instanceof HTMLElement ? trigger : null;
   setInquiryMessage("", null);
+  toggleInquiryFields(false);
   if (elements.inquiryListing) {
     const listingTitle = article?.title ? String(article.title).trim() : "closet listing";
     elements.inquiryListing.textContent = `for ${listingTitle}`;
@@ -484,13 +504,17 @@ const handleInquirySubmit = async (event) => {
       listingCurrency,
       listingPriceDisplay
     });
-    elements.inquiryForm.reset();
-    setInquiryMessage("inquiry sent", "success");
+    setInquiryMessage("inquiry sent - we'll get in touch with more details.", "success");
+    toggleInquiryFields(true);
   } catch (error) {
     console.error("Unable to submit inquiry", error);
     setInquiryMessage("something went wrong", "error");
   } finally {
-    elements.inquirySubmit.disabled = false;
+    if (!elements.inquirySubmit) {
+      return;
+    }
+    const succeeded = elements.inquiryMessage?.classList.contains("is-success") ?? false;
+    elements.inquirySubmit.disabled = succeeded;
   }
 };
 
