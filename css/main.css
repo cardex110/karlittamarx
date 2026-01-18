@@ -745,9 +745,14 @@ a:focus-visible {
 .detail-panel__thumbs {
   display: grid;
   grid-auto-flow: column;
+  grid-auto-columns: minmax(86px, 1fr);
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding: 0 4px 4px;
+  margin: 0 -4px;
+  width: 100%;
+  justify-content: flex-start;
+  -webkit-overflow-scrolling: touch;
 }
 
 .detail-panel__thumb {

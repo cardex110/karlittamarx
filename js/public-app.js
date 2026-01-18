@@ -320,7 +320,6 @@ const buildCard = (article) => {
     price,
     currency,
     size,
-    description,
     sold,
     reserved
   } = article;
@@ -396,11 +395,6 @@ const buildCard = (article) => {
 
     card.append(meta);
   }
-
-  const blurb = document.createElement("p");
-  blurb.className = "card__description";
-  blurb.textContent = description || "tap view listing for full pics + notes.";
-  card.append(blurb);
 
   const inquireButton = document.createElement("button");
   inquireButton.type = "button";
