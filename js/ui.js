@@ -709,7 +709,6 @@ const buildCard = (article, index = 0, total = 0) => {
     size,
     price,
     currency,
-    description,
     sold,
     reserved
   } = article;
@@ -788,10 +787,6 @@ const buildCard = (article, index = 0, total = 0) => {
     card.append(meta);
   }
 
-  const blurb = document.createElement("p");
-  blurb.className = "card__description";
-  blurb.textContent = description || "tap view listing for full pics + notes.";
-
   const controls = document.createElement("div");
   controls.className = "card__controls";
 
@@ -845,7 +840,7 @@ const buildCard = (article, index = 0, total = 0) => {
     }
     openDetailPanel(article, card);
   });
-  card.append(blurb, controls);
+  card.append(controls);
   return card;
 };
 
