@@ -1025,7 +1025,7 @@ export const renderInquiries = (items = []) => {
   if (elements.inquiriesSummary) {
     elements.inquiriesSummary.textContent = items.length
       ? `${items.length} entr${items.length === 1 ? "y" : "ies"}`
-      : "no inquiries yet";
+      : "";
   }
 
   if (!elements.inquiriesContent) return;
