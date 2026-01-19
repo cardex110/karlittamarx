@@ -349,6 +349,41 @@ a:focus-visible {
   .inquiry-form__group textarea {
     font-size: 1rem;
   }
+
+  .inquiries-panel__inner {
+    width: min(94vw, 520px);
+    padding: 24px;
+  }
+
+  .inquiries-item {
+    padding: 14px;
+  }
+
+  .inquiries-item__body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    row-gap: 12px;
+  }
+
+  .inquiries-item__preview {
+    width: 68px;
+    height: 68px;
+  }
+    flex-wrap: wrap;
+
+  .inquiries-item__details {
+    align-items: center;
+    text-align: center;
+  }
+
+  .inquiries-item__message {
+    text-align: center;
+  }
+
+  .inquiries-item__actions {
+    justify-content: center;
+  }
 }
 
 .card.is-sold {
@@ -1287,6 +1322,7 @@ a:focus-visible {
 .inquiries-panel__content {
   display: grid;
   gap: 16px;
+  min-width: 0;
 }
 
 .inquiries-panel__empty {
@@ -1352,12 +1388,14 @@ a:focus-visible {
   color: rgba(65, 32, 79, 0.78);
   line-height: 1.6;
   white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .inquiries-item__body {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .inquiries-item__preview {
