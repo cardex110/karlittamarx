@@ -242,6 +242,115 @@ a:focus-visible {
   filter: drop-shadow(0 4px 10px rgba(255, 140, 220, 0.35));
 }
 
+@media (max-width: 900px) {
+  html,
+  body {
+    background-size: 120px auto, 120px auto, auto, auto, auto, auto;
+  }
+
+  .page-shell {
+    gap: 28px;
+  }
+
+  .site-banner {
+    padding: 14px 18px;
+  }
+
+  .site-banner__icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card__diamond,
+  .detail-panel__diamond {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 640px) {
+  html,
+  body {
+    background-size: 90px auto, 90px auto, auto, auto, auto, auto;
+  }
+
+  body {
+    padding: 24px 0 54px;
+  }
+
+  .page-shell {
+    gap: 22px;
+  }
+
+  .site-banner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .site-banner__icon {
+    width: 96px;
+    height: 96px;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-bar__button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .listings__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card__image {
+    height: 260px;
+  }
+
+  .card__diamond {
+    width: 96px;
+    height: 96px;
+  }
+
+  .detail-panel__inner {
+    width: min(94vw, 520px);
+  }
+
+  .detail-panel__diamond {
+    width: 96px;
+    height: 96px;
+  }
+
+  .detail-panel__thumbs {
+    grid-auto-columns: minmax(70px, 1fr);
+  }
+
+  .detail-panel__status {
+    padding: 10px 24px;
+    letter-spacing: 0.18em;
+  }
+
+  .inquiry-panel__inner {
+    width: min(92vw, 520px);
+    padding: 28px;
+  }
+
+  .inquiry-form__group input,
+  .inquiry-form__group textarea {
+    font-size: 1rem;
+  }
+}
+
 .card.is-sold {
   border-color: rgba(255, 92, 138, 0.85);
   box-shadow: 0 0 22px rgba(255, 92, 138, 0.32), var(--shadow-card);

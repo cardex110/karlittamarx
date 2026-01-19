@@ -99,3 +99,40 @@ body {
 .admin-login[hidden] {
   display: none !important;
 }
+
+@media (max-width: 900px) {
+  body {
+    padding: 32px 0;
+  }
+
+  .admin-page {
+    align-items: center;
+  }
+
+  .admin-login__panel {
+    width: min(420px, 92vw);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 18px 0;
+  }
+
+  .admin-login {
+    padding: 18px;
+  }
+
+  .admin-login__panel {
+    width: min(480px, 96vw);
+    padding: 26px;
+  }
+
+  .admin-login__title {
+    font-size: 1.4rem;
+  }
+
+  .admin-login__submit {
+    width: 100%;
+  }
+}
