@@ -160,6 +160,13 @@ a:focus-visible {
   padding-bottom: 12px;
 }
 
+.action-bar__group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
 .action-bar__button {
   padding: 15px 46px;
   border-radius: 999px;
@@ -296,8 +303,13 @@ a:focus-visible {
   }
 
   .action-bar {
+    padding-bottom: 0;
+  }
+
+  .action-bar__group {
     flex-direction: column;
     gap: 10px;
+    width: 100%;
   }
 
   .action-bar__button {
@@ -361,8 +373,7 @@ a:focus-visible {
 
   .inquiries-item__body {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
     row-gap: 12px;
   }
 
@@ -370,19 +381,18 @@ a:focus-visible {
     width: 68px;
     height: 68px;
   }
-    flex-wrap: wrap;
 
   .inquiries-item__details {
-    align-items: center;
-    text-align: center;
+    align-items: start;
+    text-align: left;
   }
 
   .inquiries-item__message {
-    text-align: center;
+    text-align: left;
   }
 
   .inquiries-item__actions {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 
@@ -1350,7 +1360,7 @@ a:focus-visible {
 .inquiries-item__header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 10px;
 }
 
@@ -1389,6 +1399,7 @@ a:focus-visible {
   line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
+  text-align: left;
 }
 
 .inquiries-item__body {
@@ -1396,6 +1407,7 @@ a:focus-visible {
   align-items: flex-start;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .inquiries-item__preview {
@@ -1423,6 +1435,16 @@ a:focus-visible {
   gap: 6px;
   flex: 1;
   min-width: 0;
+  justify-items: start;
+  text-align: left;
+}
+
+.inquiries-item__listing-label {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(65, 32, 79, 0.62);
 }
 
 .inquiries-item__listing-title {
@@ -1474,7 +1496,7 @@ a:focus-visible {
 
 .inquiries-item__actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 8px;
   margin-top: 8px;
 }

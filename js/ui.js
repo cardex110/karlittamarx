@@ -1051,7 +1051,7 @@ export const renderInquiries = (items = []) => {
 
     const nameNode = document.createElement("span");
     nameNode.className = "inquiries-item__name";
-    nameNode.textContent = entry.name;
+    nameNode.textContent = `name: ${entry.name}`;
 
     const timestampNode = document.createElement("span");
     timestampNode.className = "inquiries-item__timestamp";
@@ -1064,7 +1064,7 @@ export const renderInquiries = (items = []) => {
     const emailNode = document.createElement("a");
     emailNode.className = "inquiries-item__email";
     emailNode.href = `mailto:${entry.email}`;
-    emailNode.textContent = entry.email;
+    emailNode.textContent = `email: ${entry.email}`;
     item.append(emailNode);
 
     if (entry.phone) {
@@ -1072,14 +1072,14 @@ export const renderInquiries = (items = []) => {
       phoneLink.className = "inquiries-item__phone";
       const telValue = entry.phone.replace(/[^+\d]/g, "");
       phoneLink.href = telValue ? `tel:${telValue}` : `tel:${entry.phone}`;
-      phoneLink.textContent = entry.phone;
+      phoneLink.textContent = `phone: ${entry.phone}`;
       item.append(phoneLink);
     }
 
     if (entry.message) {
       const messageNode = document.createElement("p");
       messageNode.className = "inquiries-item__message";
-      messageNode.textContent = entry.message;
+      messageNode.textContent = `message: ${entry.message}`;
       item.append(messageNode);
     }
 
@@ -1102,6 +1102,10 @@ export const renderInquiries = (items = []) => {
 
     const detailWrap = document.createElement("div");
     detailWrap.className = "inquiries-item__details";
+    const listingLabel = document.createElement("p");
+    listingLabel.className = "inquiries-item__listing-label";
+    listingLabel.textContent = "listing:";
+    detailWrap.append(listingLabel);
 
     const titleText = entry.listingTitle ? String(entry.listingTitle).trim() : "";
     if (titleText) {
@@ -1144,8 +1148,8 @@ export const renderInquiries = (items = []) => {
       const fallbackNode = document.createElement("p");
       fallbackNode.className = "inquiries-item__listing-note";
       fallbackNode.textContent = entry.listingId
-        ? "listing details unavailable"
-        : "no linked listing";
+        ? "listing: details unavailable"
+        : "listing: no linked listing";
       detailWrap.append(fallbackNode);
     }
 

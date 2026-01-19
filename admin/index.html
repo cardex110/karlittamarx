@@ -43,6 +43,20 @@
             </a>
           </header>
 
+          <section class="action-bar" aria-label="Admin actions">
+            <div class="action-bar__group">
+              <button class="action-bar__button" id="open-add-panel" type="button" aria-controls="add-panel">
+                add listing
+              </button>
+              <button class="action-bar__button" id="open-inquiries-panel" type="button" aria-controls="inquiries-panel">
+                view inquiries
+              </button>
+              <button class="action-bar__button" id="admin-logout" type="button">
+                log out
+              </button>
+            </div>
+          </section>
+
           <main class="main" id="main" aria-live="polite">
             <section class="listings" aria-label="Closet listings">
               <div class="listings__grid" id="listing-grid">
@@ -50,18 +64,6 @@
               </div>
             </section>
           </main>
-
-          <section class="action-bar" aria-label="Add listing">
-            <button class="action-bar__button" id="open-inquiries-panel" type="button" aria-controls="inquiries-panel">
-              view inquiries
-            </button>
-            <button class="action-bar__button" id="open-add-panel" type="button" aria-controls="add-panel">
-              add listing
-            </button>
-            <button class="action-bar__button" id="admin-logout" type="button">
-              log out
-            </button>
-          </section>
 
           <aside class="add-panel" id="add-panel" aria-hidden="true">
             <div class="add-panel__inner">
